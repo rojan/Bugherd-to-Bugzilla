@@ -19,7 +19,7 @@ class ImportBugs
 
     function __construct($bugzilla_url = NULL, $bugzilla_login = NULL, $bugzilla_password = NULL)
     {
-        // bugzill xmlrpc url
+        // bugzilla xmlrpc url
         $this->bugzilla_url = 'http://localhost/bugzilla/xmlrpc.cgi';
         // bugzilla username
         $this->bugzilla_login= 'username@bugzilla.com';
@@ -32,12 +32,10 @@ class ImportBugs
         $api = new BugHerd_Api('bugherd@username.com', 'bugherdpassword');
         //print_r ($projects);
 
-        // trafficgeyser - id : 3077
-        // IC - id : 3156
         try
         {
             echo "Fetching task list\n";
-                $task_list = $api->listTasks(3077);
+                $task_list = $api->listTasks('project_id');
             //print_r ($task_list);
         }
 
