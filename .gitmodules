@@ -1,0 +1,3 @@
+[submodule "bugherd"]
+	path = bugherd
+	url = https://github.com/spekkionu/bugherd.git
