@@ -1,0 +1,13 @@
+{
+    product => "TestProduct",
+    component => "BUGHERD",
+    summary => "summary of bug",
+    version => "unspecified",
+    description => "Description of bug",
+    op_sys => "All",
+    platform => "All",
+    priority => "---",
+    severity => "normal",
+    status  => "IN_PROGRESS",
+};
+

@@ -1,0 +1,20 @@
+Bugherd to Bugzilla helps to import bugs from Bugherd to bugzilla.
+It uses Bugherd php api and bz_webservice_demo.pl script which is available
+in downloaded_bugzilla_folder/contrib/.
+Find out more about bz_webservice_demo.pl in 
+http://www.bugzilla.org/docs/tip/en/html/api/contrib/bz_webservice_demo.html
+This program is tested on Bugzilla 4.2 and Bugherd api v1
+Copyright (C) 2012 rojansinha@gmail.com
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.

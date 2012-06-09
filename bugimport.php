@@ -9,6 +9,8 @@ require_once(dirname(__FILE__) . 'bugherd/lib/BugHerd/Api.php');
 
 /**
  * class to import bugs from bugherd to bugzilla
+ * Copyright (C) 2012 rojansinha@gmail.com 
+ * This program comes with ABSOLUTELY NO WARRANTY;
  * 
  **/
 class ImportBugs
@@ -27,15 +29,21 @@ class ImportBugs
        $this->bugzilla_password = 'password';
     }
 
+    /*
+     * This is the main and only function
+     * which does all the importing job
+     */
     function import()
     {
         $api = new BugHerd_Api('bugherd@username.com', 'bugherdpassword');
-        //print_r ($projects);
+        //print_r ($api->ListProjects);
 
         try
         {
             echo "Fetching task list\n";
-                $task_list = $api->listTasks('project_id');
+
+            // Change project_id with real project id
+            $task_list = $api->listTasks('project_id');
             //print_r ($task_list);
         }
 
@@ -46,7 +54,10 @@ class ImportBugs
             die();
         }
 
-        // Bugheard and bugzilla priority maping
+        /*
+         * Bugheard and bugzilla priority maping
+         * change this according to your need
+         */
         $priority = array(
             '0' => '---',
             '1' => 'Highest',
@@ -55,7 +66,10 @@ class ImportBugs
             '4' => 'Low'
         );
 
-        // Bugheard and bugzilla status maping
+        /*
+         * Bugheard and bugzilla status maping
+         * change this according to your need
+         */
         $status = array(
             '0' => 'CONFIRMED',
             '1' => 'CONFIRMED',
@@ -94,7 +108,9 @@ class ImportBugs
                     $bug_summary = $task->description;
                 }
 
-                // escaping '@' character
+                // escaping '@' character. bz_weservice_demo.pl throws error if not escaped.
+                // there should be more such characters which needs to be escape but so far i
+                // found only this.
                 $bug_description = str_replace('@', '\@', $task->description);
 
                 $file_content = <<<BUG
@@ -129,7 +145,7 @@ BUG;
                 {
                     echo "could not import bug";
                 }
-                break;
+                //break;
             }
         }
     }
